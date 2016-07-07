@@ -25,6 +25,11 @@ import RxSwift
 import CoreBluetooth
 
 // swiftlint:disable line_length
+public extension Peripheral {
+    static func createFromCB(manager: BluetoothManager, peripheral: CBPeripheral) -> Peripheral {
+        return Peripheral(manager: manager, peripheral: RxCBPeripheral(peripheral: peripheral))
+    }
+}
 
 /**
  Peripheral is a class implementing ReactiveX API which wraps all Core Bluetooth functions
